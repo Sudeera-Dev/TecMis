@@ -12,8 +12,10 @@ package LoginFrame;
 public class TecMis {
     
     public static void main(String args[]){
+        int logtest = 0;
         LoginFrame login = new LoginFrame();
-        
         login.setVisible(true);
+        
+        
     }
 }

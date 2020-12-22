@@ -25,6 +25,7 @@ public class LoginFrame extends javax.swing.JFrame {
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +86,7 @@ public class LoginFrame extends javax.swing.JFrame {
         });
 
         lblError.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblError.setText("s");
+        lblError.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +143,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addComponent(btLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblError)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
