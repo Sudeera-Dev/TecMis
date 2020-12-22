@@ -10,12 +10,17 @@ package LoginFrame;
  * @author KrzYoFreaK
  */
 public class LoginFrame extends javax.swing.JFrame {
-    private int loginMode;
+
+    /**
+     *
+     */
+    public int loginMode=0;
     /**
      * Creates new form LoginFrame
      */
     public LoginFrame() {
         initComponents();
+        
     }
 
     /**
@@ -36,6 +41,7 @@ public class LoginFrame extends javax.swing.JFrame {
         btLogin = new javax.swing.JButton();
         rbStudent = new javax.swing.JRadioButton();
         rbOther = new javax.swing.JRadioButton();
+        lblError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +81,9 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
+        lblError.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblError.setText("s");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,6 +113,10 @@ public class LoginFrame extends javax.swing.JFrame {
                             .addComponent(txtUname)
                             .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(78, 78, 78))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(lblError)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +137,9 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(rbOther))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btLogin)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblError)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,8 +154,9 @@ public class LoginFrame extends javax.swing.JFrame {
         String uname = txtUname.getText();
         String pass = txtPass.getText();
         
-        System.out.println(uname+" "+pass );
-        LoginTest loginTest = new LoginTest(uname,pass);
+        LoginTest loginTest = new LoginTest(uname,pass,loginMode);
+        lblError.setText(loginTest.validateLogin());
+        
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void rbStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbStudentActionPerformed
@@ -156,7 +172,7 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -181,10 +197,8 @@ public class LoginFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LoginFrame().setVisible(true);
         });
     }
 
@@ -194,6 +208,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblError;
     private javax.swing.JRadioButton rbOther;
     private javax.swing.JRadioButton rbStudent;
     private javax.swing.JPasswordField txtPass;
