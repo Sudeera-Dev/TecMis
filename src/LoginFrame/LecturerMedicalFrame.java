@@ -5,6 +5,8 @@
  */
 package LoginFrame;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author KrzYoFreaK
@@ -16,6 +18,7 @@ public class LecturerMedicalFrame extends javax.swing.JFrame {
      */
     public LecturerMedicalFrame() {
         initComponents();
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
 
     /**
