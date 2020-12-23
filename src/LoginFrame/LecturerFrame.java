@@ -5,20 +5,21 @@
  */
 package LoginFrame;
 
-import javax.swing.JFrame;
-
 /**
  *
  * @author KrzYoFreaK
  */
 public class LecturerFrame extends javax.swing.JFrame {
-
+    private String uname;
     /**
      * Creates new form LecturerFrame
      */
     public LecturerFrame() {
         initComponents();
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+    }
+    
+    public void setUname(String uname){
+        this.uname=uname;  
     }
 
     /**
@@ -321,7 +322,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

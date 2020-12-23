@@ -15,7 +15,5 @@ public class TecMis {
         int logtest = 0;
         LoginFrame login = new LoginFrame();
         login.setVisible(true);
-        
-        
     }
 }
