@@ -84,11 +84,15 @@ public class LoginTest {
                     frame.setVisible(true);
                     return  "Sucess";
                 }else if("LEC".equals(job)){
+                    LectureDetails lectureDetails = new LectureDetails(uname);
                     LecturerFrame frame = new LecturerFrame();
+                    System.out.println(lectureDetails.getUname());
                     frame.setVisible(true);
                     return  "Sucess";
                 }else if("TEC_OFF".equals(job)){
+                    TechOfficerDetails techOfficerDetails = new TechOfficerDetails(uname);
                     TechOfficerFrame frame = new TechOfficerFrame();
+                    System.out.println(techOfficerDetails.getUname());
                     frame.setVisible(true);
                     return  "Sucess";
                 }
@@ -114,6 +118,8 @@ public class LoginTest {
             if (count == 0){
                 return  "No record found";
             }else{
+                StudentDetails studentDetails = new StudentDetails(uname);
+                System.out.println(studentDetails.getUname());
                 StudentFrame frame = new StudentFrame();
                 frame.setVisible(true);
                 return  "Sucess";
