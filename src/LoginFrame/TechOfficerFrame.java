@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class TechOfficerFrame extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TechOfficerFrame
      */
