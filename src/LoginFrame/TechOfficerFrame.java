@@ -18,7 +18,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
      */
     public TechOfficerFrame() {
         initComponents();
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        
     }
 
     /**

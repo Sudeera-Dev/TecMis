@@ -18,7 +18,7 @@ public class StudentFrame extends javax.swing.JFrame {
      */
     public StudentFrame() {
         initComponents();
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        
     }
 
     /**

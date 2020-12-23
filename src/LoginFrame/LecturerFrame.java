@@ -18,7 +18,7 @@ public class LecturerFrame extends javax.swing.JFrame {
      */
     public LecturerFrame() {
         initComponents();
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        
     }
 
     /**
