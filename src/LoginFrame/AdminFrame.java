@@ -126,11 +126,13 @@ public class AdminFrame extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtNNid = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        cbCCDep2 = new javax.swing.JComboBox<>();
+        txtNnotice = new javax.swing.JTextField();
+        cbNdep = new javax.swing.JComboBox<>();
         lblDep3 = new javax.swing.JLabel();
+        btnNCreate = new javax.swing.JButton();
+        lblNResult = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -823,11 +825,20 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jLabel31.setText("Notice ID");
 
-        jLabel32.setText("Notice Name");
+        jLabel32.setText("Notice");
 
-        cbCCDep2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
+        cbNdep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
 
         lblDep3.setText("Department");
+
+        btnNCreate.setText("Create");
+        btnNCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNCreateActionPerformed(evt);
+            }
+        });
+
+        lblNResult.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -836,16 +847,24 @@ public class AdminFrame extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel32)
-                    .addComponent(lblDep3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbCCDep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField9)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel32)
+                            .addComponent(lblDep3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(lblNResult))
+                            .addComponent(cbNdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNNid)
+                                .addComponent(txtNnotice, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnNCreate)))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -856,16 +875,20 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNNid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNnotice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDep3)
-                    .addComponent(cbCCDep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(cbNdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblNResult)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNCreate)
+                .addGap(47, 47, 47))
         );
 
         jTabbedPane3.addTab("Create Notice", jPanel17);
@@ -921,7 +944,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDep4)
                     .addComponent(cbCCDep3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Edit Notice", jPanel18);
@@ -963,7 +986,7 @@ public class AdminFrame extends javax.swing.JFrame {
                     .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Delete Notice", jPanel19);
@@ -1005,7 +1028,7 @@ public class AdminFrame extends javax.swing.JFrame {
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Search Notice", jPanel20);
@@ -1023,8 +1046,8 @@ public class AdminFrame extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1212,6 +1235,15 @@ public class AdminFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCCreate1ActionPerformed
 
+    private void btnNCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNCreateActionPerformed
+        // TODO add your handling code here:
+        String nid=txtNNid.getText();
+        String dep = cbNdep.getSelectedItem().toString();
+        String notice=txtNnotice.getText();
+        NoticeDetails noticeDetails = new NoticeDetails(nid,dep,notice);
+        lblNResult.setText(noticeDetails.validateNoticeCreate());
+    }//GEN-LAST:event_btnNCreateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1252,15 +1284,16 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCCreate1;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnNCreate;
     private javax.swing.JButton btnUSearch;
     private javax.swing.JComboBox<String> cbCCDep;
     private javax.swing.JComboBox<String> cbCCDep1;
-    private javax.swing.JComboBox<String> cbCCDep2;
     private javax.swing.JComboBox<String> cbCCDep3;
     public javax.swing.JComboBox<String> cbCDep;
     public javax.swing.JComboBox<String> cbCRole;
     private javax.swing.JComboBox<String> cbEDep;
     private javax.swing.JComboBox<String> cbERole;
+    private javax.swing.JComboBox<String> cbNdep;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1337,7 +1370,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -1349,7 +1381,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCresult;
     private javax.swing.JLabel lblDep;
     private javax.swing.JLabel lblDep1;
@@ -1359,6 +1390,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblEditUser;
     private javax.swing.JLabel lblEditUser1;
     private javax.swing.JLabel lblEditUser2;
+    private javax.swing.JLabel lblNResult;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPass1;
     private javax.swing.JLabel lblPass2;
@@ -1377,6 +1409,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtEFname3;
     private javax.swing.JTextField txtEPass;
     private javax.swing.JTextField txtEUid;
+    private javax.swing.JTextField txtNNid;
+    private javax.swing.JTextField txtNnotice;
     private javax.swing.JTextField txtSWord;
     // End of variables declaration//GEN-END:variables
 }

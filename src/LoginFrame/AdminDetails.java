@@ -29,6 +29,9 @@ public class AdminDetails {
         this.pass = pass;
         this.pass1 = pass1;
     }
+    AdminDetails(String uid){
+        this.uid = uid;
+    }
     private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
         return myConn;
@@ -103,6 +106,11 @@ public class AdminDetails {
             return "user Successfully Created";
             }
         }
+        
+    }
+    
+    public String validateTextSearch(){
+        return null;
         
     }
 }
