@@ -21,7 +21,9 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         
     }
     
- 
+    public void setUname(String uname){
+        this.uname=uname;  
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

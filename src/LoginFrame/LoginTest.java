@@ -5,7 +5,6 @@
  */
 package LoginFrame;
 
-import LectureDetail;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,23 +21,15 @@ public class LoginTest {
     private String pass;
     private int loginMode;
     
-    
-  
-    
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
     Statement stmt;
 
-    
-        
-    
     LoginTest(String uname,String pass,int loginMode){
         this.uname = uname;
         this.pass = pass;
         this.loginMode = loginMode;
     }
-    
-    
     
     private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
@@ -98,14 +89,14 @@ public class LoginTest {
                     case "LEC":
                     {
                         LecturerFrame frame = new LecturerFrame();
-                        LectureDetail lecturedetail = new LectureDetail(uname); 
+                        frame.setUname(uname);
                         frame.setVisible(true);
                         return  "Sucess";
                     }
                     case "TEC_OFF":
                     {
                         TechOfficerFrame frame = new TechOfficerFrame();
-                        TecOffDetail tecoffdetails = new TecOffDetail(uname);  
+                        frame.setUname(uname);
                         frame.setVisible(true);
                         return  "Sucess";
                     }
@@ -135,7 +126,7 @@ public class LoginTest {
                 return  "No record found";
             }else{
                 StudentFrame frame = new StudentFrame();
-                StudentDetail studentdetail = new StudentDetail(uname);
+                frame.setUname(uname);
                 frame.setVisible(true);
                 return  "Sucess";
             }

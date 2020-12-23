@@ -20,7 +20,10 @@ public class StudentFrame extends javax.swing.JFrame {
         initComponents();
     }
     
- 
+    public void setUname(String uname){
+        this.uname=uname;  
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
