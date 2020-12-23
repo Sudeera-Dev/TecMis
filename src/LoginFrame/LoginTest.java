@@ -79,29 +79,18 @@ public class LoginTest {
             if (count == 0){
                 return  "No record found";
             }else{
-                if(null != job)switch (job) {
-                    case "ADMIN":
-                    {
-                        AdminFrame frame = new AdminFrame();
-                        frame.setVisible(true);
-                        return  "Sucess";
-                    }
-                    case "LEC":
-                    {
-                        LecturerFrame frame = new LecturerFrame();
-                        frame.setUname(uname);
-                        frame.setVisible(true);
-                        return  "Sucess";
-                    }
-                    case "TEC_OFF":
-                    {
-                        TechOfficerFrame frame = new TechOfficerFrame();
-                        frame.setUname(uname);
-                        frame.setVisible(true);
-                        return  "Sucess";
-                    }
-                    default:
-                        break;
+                if("ADMIN".equals(job)){
+                    AdminFrame frame = new AdminFrame();
+                    frame.setVisible(true);
+                    return  "Sucess";
+                }else if("LEC".equals(job)){
+                    LecturerFrame frame = new LecturerFrame();
+                    frame.setVisible(true);
+                    return  "Sucess";
+                }else if("TEC_OFF".equals(job)){
+                    TechOfficerFrame frame = new TechOfficerFrame();
+                    frame.setVisible(true);
+                    return  "Sucess";
                 }
             }
         } catch (SQLException ex) {
@@ -126,7 +115,6 @@ public class LoginTest {
                 return  "No record found";
             }else{
                 StudentFrame frame = new StudentFrame();
-                frame.setUname(uname);
                 frame.setVisible(true);
                 return  "Sucess";
             }

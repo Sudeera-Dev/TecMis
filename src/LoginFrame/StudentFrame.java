@@ -12,16 +12,13 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class StudentFrame extends javax.swing.JFrame {
-    private String uname;
+
     /**
      * Creates new form StudentFrame
      */
     public StudentFrame() {
         initComponents();
-    }
-    
-    public void setUname(String uname){
-        this.uname=uname;  
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
 
     /**
@@ -82,11 +79,6 @@ public class StudentFrame extends javax.swing.JFrame {
         jLabel6.setText("Department :");
 
         lblSName.setText("Sudeera Kavishka");
-        lblSName.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                lblSNamePropertyChange(evt);
-            }
-        });
 
         lblSEmail.setText("Sudeerakavishka7@gmail.com");
 
@@ -359,10 +351,6 @@ public class StudentFrame extends javax.swing.JFrame {
         StudentResultsFrame studentResultsFrame = new StudentResultsFrame();
         studentResultsFrame.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void lblSNamePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lblSNamePropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblSNamePropertyChange
 
     /**
      * @param args the command line arguments

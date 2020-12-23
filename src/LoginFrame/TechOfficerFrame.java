@@ -12,17 +12,13 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class TechOfficerFrame extends javax.swing.JFrame {
-    private String uname;
+
     /**
      * Creates new form TechOfficerFrame
      */
     public TechOfficerFrame() {
         initComponents();
-        
-    }
-    
-    public void setUname(String uname){
-        this.uname=uname;  
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
 
     /**
