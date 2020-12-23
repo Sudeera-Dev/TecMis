@@ -5,6 +5,8 @@
  */
 package LoginFrame;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author KrzYoFreaK
@@ -16,6 +18,7 @@ public class AdminFrame extends javax.swing.JFrame {
      */
     public AdminFrame() {
         initComponents();
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
 
     /**
