@@ -223,7 +223,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(lblSDept1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -271,7 +271,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                             .addComponent(jLabel39))
                         .addGap(74, 74, 74)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEFname3, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+                            .addComponent(txtEFname3)
                             .addComponent(txtEFname2)
                             .addComponent(txtEFname1)
                             .addComponent(txtEFname)))
@@ -303,7 +303,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                     .addComponent(jLabel39))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Settings", jPanel2);
@@ -318,7 +318,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
