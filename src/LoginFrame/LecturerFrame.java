@@ -10,7 +10,7 @@ package LoginFrame;
  * @author KrzYoFreaK
  */
 public class LecturerFrame extends javax.swing.JFrame {
-    private String uname;
+    private String uname ;
     /**
      * Creates new form LecturerFrame
      */
@@ -18,9 +18,6 @@ public class LecturerFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void setUname(String uname){
-        this.uname=uname;  
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
