@@ -5,20 +5,68 @@
  */
 package LoginFrame;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author KrzYoFreaK
  */
 public class TechOfficerDetails {
-    private String uname;
+    private String uname,fname,lname,address,contact;
     
+    MyDBConnector mdc = new MyDBConnector();
+    Connection con = getConnection();
+    Statement stmt;
+    
+    
+   
     TechOfficerDetails(String uname) {
         this.uname = uname;
+        
     }
+
+    TechOfficerDetails(String fname, String lname, String address, String contact) {
+         //To change body of generated methods, choose Tools | Templates.
+         this.fname = fname;
+         this.lname = lname;
+         this.address=address;
+         this.contact=contact;
+         
+    }
+     private Connection getConnection() {
+        Connection myConn = mdc.getMyConnection();
+        return myConn;
+    }
+     
+    private String updateData(String fname,String lname,String address,String contact,String uname){
+        
+        String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id=\""+uname+"\"";
+        try {
+            stmt = con.createStatement();
+            stmt = con.prepareStatement(sql);
+            stmt.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Updated SuccsesFully");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        return null;
+    
+    
+    } 
     
     public String getUname(){
         return uname;
         
     }
-    
+
+  
 }
