@@ -12,7 +12,6 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class AdminFrame extends javax.swing.JFrame {
-
     /**
      * Creates new form AdminFrame
      */
@@ -20,7 +19,8 @@ public class AdminFrame extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,15 +47,10 @@ public class AdminFrame extends javax.swing.JFrame {
         lblPass = new javax.swing.JLabel();
         txtCPass = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
-        txtEFname4 = new javax.swing.JTextField();
-        txtEFname5 = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        txtEFname6 = new javax.swing.JTextField();
-        txtEFname7 = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
         btnCCreate1 = new javax.swing.JButton();
+        txtCPass1 = new javax.swing.JTextField();
+        lblPass2 = new javax.swing.JLabel();
+        lblCresult = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         lblEditUser1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -171,11 +166,11 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Admin");
 
-        cbCRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Teacher", "Tech Officer", "Admin" }));
+        cbCRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "STUDENT", "LEC", "TEC_OFF" }));
 
         jLabel2.setText("Role");
 
-        cbCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST", "Admin" }));
+        cbCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
 
         lblUid.setText("User ID");
 
@@ -188,15 +183,16 @@ public class AdminFrame extends javax.swing.JFrame {
 
         btnCreate.setText("Create");
 
-        jLabel40.setText("First Name");
-
-        jLabel41.setText("Last Name");
-
-        jLabel42.setText("Address");
-
-        jLabel43.setText("Contact");
-
         btnCCreate1.setText("Create");
+        btnCCreate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCCreate1ActionPerformed(evt);
+            }
+        });
+
+        lblPass2.setText("Confirm Password");
+
+        lblCresult.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
         javax.swing.GroupLayout pnlCreateUserLayout = new javax.swing.GroupLayout(pnlCreateUser);
         pnlCreateUser.setLayout(pnlCreateUserLayout);
@@ -226,27 +222,23 @@ public class AdminFrame extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)))
                         .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCUid)
-                            .addComponent(txtCPass)
                             .addGroup(pnlCreateUserLayout.createSequentialGroup()
                                 .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbCRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbCDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 236, Short.MAX_VALUE))))
-                    .addGroup(pnlCreateUserLayout.createSequentialGroup()
-                        .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel41)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel43))
-                        .addGap(29, 29, 29)
-                        .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEFname6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtEFname5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtEFname4)
-                            .addComponent(txtEFname7)))
+                                .addGap(0, 251, Short.MAX_VALUE))
+                            .addComponent(txtCPass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateUserLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCCreate1)))
+                        .addComponent(btnCCreate1))
+                    .addGroup(pnlCreateUserLayout.createSequentialGroup()
+                        .addComponent(lblPass2)
+                        .addGap(34, 34, 34)
+                        .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCreateUserLayout.createSequentialGroup()
+                                .addComponent(lblCresult)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCPass1))))
                 .addContainerGap())
         );
         pnlCreateUserLayout.setVerticalGroup(
@@ -270,25 +262,15 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPass)
                     .addComponent(txtCPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel41))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(pnlCreateUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPass2)
+                    .addComponent(txtCPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblCresult)
+                .addGap(85, 85, 85)
                 .addComponent(btnCCreate1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btnCreate)
                 .addContainerGap())
         );
@@ -800,7 +782,7 @@ public class AdminFrame extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1218,6 +1200,18 @@ public class AdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void btnCCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCCreate1ActionPerformed
+        // TODO add your handling code here:
+        String uid=txtCUid.getText();
+        String dep = cbCDep.getSelectedItem().toString();
+        String role = cbCRole.getSelectedItem().toString();
+        String pass=txtCPass.getText();
+        String pass1=txtCPass1.getText();
+        AdminDetails adminDetails = new AdminDetails(uid,dep,role,pass,pass1);
+        lblCresult.setText(adminDetails.validateTextCreate());
+        
+    }//GEN-LAST:event_btnCCreate1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1263,8 +1257,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbCCDep1;
     private javax.swing.JComboBox<String> cbCCDep2;
     private javax.swing.JComboBox<String> cbCCDep3;
-    private javax.swing.JComboBox<String> cbCDep;
-    private javax.swing.JComboBox<String> cbCRole;
+    public javax.swing.JComboBox<String> cbCDep;
+    public javax.swing.JComboBox<String> cbCRole;
     private javax.swing.JComboBox<String> cbEDep;
     private javax.swing.JComboBox<String> cbERole;
     private javax.swing.JButton jButton1;
@@ -1307,10 +1301,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1360,6 +1350,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblCresult;
     private javax.swing.JLabel lblDep;
     private javax.swing.JLabel lblDep1;
     private javax.swing.JLabel lblDep2;
@@ -1370,22 +1361,20 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblEditUser2;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPass1;
+    private javax.swing.JLabel lblPass2;
     private javax.swing.JLabel lblUid;
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel pnlCreateUser;
     private javax.swing.JTextField txtCCId;
     private javax.swing.JTextField txtCCname;
-    private javax.swing.JTextField txtCPass;
-    private javax.swing.JTextField txtCUid;
+    public javax.swing.JTextField txtCPass;
+    public javax.swing.JTextField txtCPass1;
+    public javax.swing.JTextField txtCUid;
     private javax.swing.JTextField txtDUid;
     private javax.swing.JTextField txtEFname;
     private javax.swing.JTextField txtEFname1;
     private javax.swing.JTextField txtEFname2;
     private javax.swing.JTextField txtEFname3;
-    private javax.swing.JTextField txtEFname4;
-    private javax.swing.JTextField txtEFname5;
-    private javax.swing.JTextField txtEFname6;
-    private javax.swing.JTextField txtEFname7;
     private javax.swing.JTextField txtEPass;
     private javax.swing.JTextField txtEUid;
     private javax.swing.JTextField txtSWord;
