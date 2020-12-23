@@ -89,12 +89,14 @@ public class LoginTest {
                     case "LEC":
                     {
                         LecturerFrame frame = new LecturerFrame();
+                        frame.setUname(uname);
                         frame.setVisible(true);
                         return  "Sucess";
                     }
                     case "TEC_OFF":
                     {
                         TechOfficerFrame frame = new TechOfficerFrame();
+                        frame.setUname(uname);
                         frame.setVisible(true);
                         return  "Sucess";
                     }
@@ -124,6 +126,7 @@ public class LoginTest {
                 return  "No record found";
             }else{
                 StudentFrame frame = new StudentFrame();
+                frame.setUname(uname);
                 frame.setVisible(true);
                 return  "Sucess";
             }
