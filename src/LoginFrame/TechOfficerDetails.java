@@ -80,6 +80,20 @@ public class TechOfficerDetails {
         }
         return null;
     }
+    
+    public String setMail(){
+        
+        String sql="SELECT email FROM staff WHERE emp_id=\""+uname+"\"";
+        try {
+            stmt = con.createStatement();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+      }
 
   
 }

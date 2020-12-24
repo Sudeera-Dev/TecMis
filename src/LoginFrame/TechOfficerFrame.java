@@ -21,6 +21,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
         TechOfficerDetails techOfficerDetails = new TechOfficerDetails();
         lblTName.setText(techOfficerDetails.setName());
+        lblTEmail.setText(techOfficerDetails.setMail());
     }
 
     /**
