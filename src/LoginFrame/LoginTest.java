@@ -66,7 +66,7 @@ public class LoginTest {
     private String checkStaff(){
         int count=0;
         String job="";
-        String myStatement = "SELECT * FROM staff WHERE emp_id=\""+uname+"\" and password=\""+pass+"\" ";
+        String myStatement = "SELECT * FROM staff WHERE emp_id=\""+uname+"\" and password=\""+pass+"\" and is_delete=0 ";
         
         try {
             stmt = con.createStatement();
@@ -106,7 +106,7 @@ public class LoginTest {
     
     private String checkStudent(){
         int count=0;
-        String myStatement = "SELECT * FROM student WHERE stu_id=\""+uname+"\" and password=\""+pass+"\" ";
+        String myStatement = "SELECT * FROM student WHERE stu_id=\""+uname+"\" and password=\""+pass+"\" and is_delete=0";
         
         try {
             stmt = con.createStatement();
