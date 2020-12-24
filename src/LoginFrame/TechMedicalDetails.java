@@ -18,7 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class TechMedicalDetails {
    
-    private String ref,cid,sid,date;
+    private String ref,cid,sid,date,edate,time,stat;
+  
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
@@ -29,16 +30,24 @@ public class TechMedicalDetails {
         return myConn;
     }
     
-    TechMedicalDetails(String ref, String cid, String sid, String date){
+    TechMedicalDetails(String ref, String cid, String sid, String date,String edate,String time,String stat){
         this.ref = ref;
         this.cid = cid;
         this.sid = sid;
         this.date = date;
+        this.edate = edate;
+        this.time = time;
+        this.stat = stat;
+       
+        
         
     }
     
+         
+     
+    
     public String AddDate(){
-        String sql =  "INSERT INTO medical(ref_id, stu_id, date, c_id) VALUES (\""+ref+"\" ,\""+sid+"\",\""+date+"\",\""+cid+"\")";
+        String sql =  "INSERT INTO medical(ref_id, stu_id, date, c_id, end_date, time, status) VALUES (\""+ref+"\" ,\""+sid+"\",\""+date+"\",\""+cid+"\",\""+edate+"\",\""+time+"\",\""+stat+"\")";
         
         try {
             stmt = con.createStatement();

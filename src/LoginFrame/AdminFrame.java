@@ -208,10 +208,20 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel1.setText("Admin");
 
         cbCRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "STUDENT", "LEC", "TEC_OFF" }));
+        cbCRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCRoleActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Role");
 
         cbCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
+        cbCDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCDepActionPerformed(evt);
+            }
+        });
 
         lblUid.setText("User ID");
 
@@ -1423,6 +1433,14 @@ public class AdminFrame extends javax.swing.JFrame {
         CourseDetails courseDetails = new CourseDetails(cid,credit,cName,cLec,cDep);
         lblCCResult.setText(courseDetails.validateCourseCreate());
     }//GEN-LAST:event_btnCCreateActionPerformed
+
+    private void cbCDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCDepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCDepActionPerformed
+
+    private void cbCRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCRoleActionPerformed
 
     /**
      * @param args the command line arguments
