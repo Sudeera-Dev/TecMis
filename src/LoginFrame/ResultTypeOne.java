@@ -34,6 +34,12 @@ public class ResultTypeOne {
      double mid;
      double final_theory;
      double final_prac;
+     
+     String ca_status;
+     String grade;
+     double sgpa;
+     
+
     
       private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
@@ -46,10 +52,10 @@ public class ResultTypeOne {
         this.subject = subject;
         
     }
-    public void subjectData(String subject, String uname){
+    public void subjectData(){
         
  
-         String myStatement = "SELECT * FROM "+ ""+subject+" WHERE stu_id=\""+stu_id+"\"";
+        String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
          
          
          
@@ -57,14 +63,20 @@ public class ResultTypeOne {
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(myStatement);
             
+            while (rs.next()){
+           
+            
              quiz1 = rs.getFloat("quiz_1");
              quiz2 = rs.getFloat("quiz_2");
              quiz3 = rs.getFloat("quiz_3");
              
              mid = rs.getFloat("mid");
              final_theory = rs.getFloat("final_theory");
-             final_prac = rs.getFloat("final_prac");
-            
+             final_prac = rs.getFloat("final_practical");
+             
+             
+      
+            }
             
         } catch (SQLException ex) {
             
@@ -97,6 +109,7 @@ public double caTotal(){
     }    
     
     caTotal = ((quizTotal[0]+quizTotal[1])/20)+(mid/5);
+    caTotal =  Math.round(caTotal*100.0)/100.0;
     
     return caTotal;
 }
@@ -111,7 +124,68 @@ public double subjectTotal(){
     double caTotal = caTotal();
     
     
-    subjectTotal = (final_theory/100*40)+(final_prac/100*30+caTotal);
+    subjectTotal = (final_theory/100*40)+(final_prac/100*30)+caTotal;
+    subjectTotal =  Math.round(subjectTotal*100.0)/100.0;
+    
+    if (caTotal>=15){
+          ca_status="PASS";  
+     
+    
+    
+          if (subjectTotal>=85){
+                    grade = "A+";
+                    sgpa = 4.00;
+                }
+                else if(subjectTotal>=75){
+                    grade = "A";
+                    sgpa = 4.00;
+                }
+                 else if(subjectTotal>=70){
+                    grade = "A-";
+                    sgpa = 3.70;
+                }
+                 else if(subjectTotal>=65){
+                    grade = "B+";
+                    sgpa = 3.30;
+                }
+                 else if(subjectTotal>=60){
+                    grade = "B";
+                    sgpa = 3.00;
+                }
+                 else if(subjectTotal>=55){
+                    grade = "B-";
+                    sgpa = 2.70;
+                }
+                 else if(subjectTotal>=50){
+                    grade = "C+";
+                    sgpa = 2.30;
+                    
+                }
+                 else if(subjectTotal>=45){
+                    grade = "C";
+                    sgpa = 2.00;
+                }
+                 else if(subjectTotal>=40){
+                    grade = "C-";
+                    sgpa = 1.70;
+                }
+                 else if(subjectTotal>=35){
+                    grade = "D+";
+                    sgpa = 1.30;
+                }
+                  else if(subjectTotal>=30){
+                    grade = "D";
+                    sgpa = 1.00;
+                }
+                 else {
+                     grade = "E";
+                     sgpa = 0.00;
+                }
+                 
+     }else {
+          ca_status="FAIL";  
+      }
+    
     
     
  return subjectTotal;
