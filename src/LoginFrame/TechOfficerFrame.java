@@ -319,14 +319,8 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         String lname = ToLname.getText();
         String address = ToAdd.getText();
         String contact = ToCon.getText();
-        
         TechOfficerDetails techOfficerDetails = new TechOfficerDetails(fname,lname,address,contact);
-<<<<<<< Updated upstream
         techOfficerDetails.updateData();
-
-=======
-        
->>>>>>> Stashed changes
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

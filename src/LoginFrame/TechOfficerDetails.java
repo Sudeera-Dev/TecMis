@@ -17,18 +17,12 @@ import javax.swing.JOptionPane;
  * @author KrzYoFreaK
  */
 public class TechOfficerDetails {
-    private String uname,fname,lname,address,contact;
+    private String uname;
+    private String fname,lname,address,contact;
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
     Statement stmt;
-    
-    
-   
-    TechOfficerDetails(String uname) {
-        this.uname = uname;
-        
-    }
 
     TechOfficerDetails(String fname, String lname, String address, String contact) {
          //To change body of generated methods, choose Tools | Templates.
@@ -36,6 +30,7 @@ public class TechOfficerDetails {
          this.lname = lname;
          this.address=address;
          this.contact=contact;
+         uname=LoginTest.uid;
          
     }
      private Connection getConnection() {
