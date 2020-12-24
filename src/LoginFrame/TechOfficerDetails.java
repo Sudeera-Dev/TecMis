@@ -6,6 +6,7 @@
 package LoginFrame;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -33,6 +34,11 @@ public class TechOfficerDetails {
          uname=LoginTest.uid;
          
     }
+    
+    TechOfficerDetails(){
+          uname=LoginTest.uid;
+    }
+    
      private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
         return myConn;
@@ -58,9 +64,21 @@ public class TechOfficerDetails {
     
     } 
     
-    public String getUname(){
-        return uname;
-        
+    public String setName(){
+        String myStatement="Select * from staff where emp_id=\""+uname+"\"";
+        String fname="",lname="";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(myStatement);
+            while(rs.next()){
+                    fname=rs.getString("f_name");
+                    lname=rs.getString("l_name");
+                }
+            return fname+" "+lname;
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
   
