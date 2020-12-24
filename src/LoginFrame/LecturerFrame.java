@@ -5,6 +5,12 @@
  */
 package LoginFrame;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -12,15 +18,47 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class LecturerFrame extends javax.swing.JFrame {
-
+     MyDBConnector db = new MyDBConnector();
+    Connection con = db.getMyConnection();
     /**
      * Creates new form LecturerFrame
      */
     public LecturerFrame() {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        displayNotice();
+        
     }
 
+    private void displayNotice(){
+        int row=0;
+        String dep="";
+        String input ="select * from staff where emp_id=\""+LoginTest.uid+"\" and is_delete=\"0\"";
+        PreparedStatement tmt;
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    dep=rs.getString("dep_id");
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        input ="select * from notice where dep_id=\""+dep+"\" and is_delete=\"0\"";
+        
+        
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    row += 1;
+                    listLNotice.add(row+".   "+rs.getString("notice"));
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +82,7 @@ public class LecturerFrame extends javax.swing.JFrame {
         lblSContact = new javax.swing.JLabel();
         lblSDept = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
-        list1 = new java.awt.List();
+        listLNotice = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -102,6 +140,8 @@ public class LecturerFrame extends javax.swing.JFrame {
             .addGap(0, 143, Short.MAX_VALUE)
         );
 
+        listLNotice.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel7.setText("Notices");
 
@@ -158,7 +198,7 @@ public class LecturerFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listLNotice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
@@ -237,7 +277,7 @@ public class LecturerFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(3, 3, 3)
-                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listLNotice, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -438,7 +478,7 @@ public class LecturerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSDept1;
     private javax.swing.JLabel lblSEmail;
     private javax.swing.JLabel lblSName;
-    private java.awt.List list1;
+    private java.awt.List listLNotice;
     private java.awt.Panel panel1;
     private javax.swing.JTextField txtEFname;
     private javax.swing.JTextField txtEFname1;
