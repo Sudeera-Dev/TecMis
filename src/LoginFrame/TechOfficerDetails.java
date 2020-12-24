@@ -43,7 +43,7 @@ public class TechOfficerDetails {
         return myConn;
     }
      
-    private String updateData(String fname,String lname,String address,String contact,String uname){
+    public String updateData(){
         
         String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id=\""+uname+"\"";
         try {
