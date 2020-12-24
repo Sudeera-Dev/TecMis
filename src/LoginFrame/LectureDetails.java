@@ -12,12 +12,4 @@ package LoginFrame;
 public class LectureDetails {
     private String uname;
     
-    LectureDetails(String uname) {
-        this.uname = uname;
-    }
-    
-    public String getUname(){
-        return uname;
-        
-    }
 }

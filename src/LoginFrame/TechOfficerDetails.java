@@ -6,6 +6,7 @@
 package LoginFrame;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -17,18 +18,12 @@ import javax.swing.JOptionPane;
  * @author KrzYoFreaK
  */
 public class TechOfficerDetails {
-    private String uname,fname,lname,address,contact;
+    private String uname;
+    private String fname,lname,address,contact;
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
     Statement stmt;
-    
-    
-   
-    TechOfficerDetails(String uname) {
-        this.uname = uname;
-        
-    }
 
     TechOfficerDetails(String fname, String lname, String address, String contact) {
          //To change body of generated methods, choose Tools | Templates.
@@ -36,14 +31,20 @@ public class TechOfficerDetails {
          this.lname = lname;
          this.address=address;
          this.contact=contact;
+         uname=LoginTest.uid;
          
     }
+    
+    TechOfficerDetails(){
+          uname=LoginTest.uid;
+    }
+    
      private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
         return myConn;
     }
      
-    private String updateData(String fname,String lname,String address,String contact,String uname){
+    public String updateData(){
         
         String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id=\""+uname+"\"";
         try {
@@ -63,9 +64,21 @@ public class TechOfficerDetails {
     
     } 
     
-    public String getUname(){
-        return uname;
-        
+    public String setName(){
+        String myStatement="Select * from staff where emp_id=\""+uname+"\"";
+        String fname="",lname="";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(myStatement);
+            while(rs.next()){
+                    fname=rs.getString("f_name");
+                    lname=rs.getString("l_name");
+                }
+            return fname+" "+lname;
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
   
