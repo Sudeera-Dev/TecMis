@@ -183,6 +183,8 @@ public class AdminFrame extends javax.swing.JFrame {
         jTextField14 = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        btnANall = new javax.swing.JButton();
+        cbANdep = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
@@ -206,7 +208,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Role");
 
-        cbCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
+        cbCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         lblUid.setText("User ID");
 
@@ -894,7 +896,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jLabel32.setText("Notice");
 
-        cbNdep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
+        cbNdep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         lblDep3.setText("Department");
 
@@ -1065,6 +1067,15 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jButton6.setText("Search");
 
+        btnANall.setText("See All");
+        btnANall.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnANallActionPerformed(evt);
+            }
+        });
+
+        cbANdep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
+
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
@@ -1080,7 +1091,10 @@ public class AdminFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnANall)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbANdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton6)))
                 .addContainerGap())
         );
@@ -1094,7 +1108,10 @@ public class AdminFrame extends javax.swing.JFrame {
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(btnANall)
+                    .addComponent(cbANdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
 
@@ -1349,6 +1366,13 @@ public class AdminFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCCreate1ActionPerformed
 
+    private void btnANallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnANallActionPerformed
+        // TODO add your handling code here:
+        String dep=cbANdep.getSelectedItem().toString();
+        String myStatement="select * from notice where dep_id=\""+dep+"\" and is_delete=0";
+        getStatement(myStatement);
+    }//GEN-LAST:event_btnANallActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1383,11 +1407,13 @@ public class AdminFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnANall;
     private javax.swing.JButton btnCCreate;
     private javax.swing.JButton btnCCreate1;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNCreate;
     private javax.swing.JButton btnUSearch;
+    private javax.swing.JComboBox<String> cbANdep;
     private javax.swing.JComboBox<String> cbCCDep;
     private javax.swing.JComboBox<String> cbCCDep1;
     private javax.swing.JComboBox<String> cbCCDep3;
