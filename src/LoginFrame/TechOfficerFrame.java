@@ -22,6 +22,9 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         TechOfficerDetails techOfficerDetails = new TechOfficerDetails();
         lblTName.setText(techOfficerDetails.setName());
         lblTEmail.setText(techOfficerDetails.setMail());
+        lblTAddress.setText(techOfficerDetails.setAdd());
+        lblTContact.setText(techOfficerDetails.setCont());
+        lblTDept.setText(techOfficerDetails.setDept());
     }
 
     /**
@@ -45,7 +48,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         lblTEmail = new javax.swing.JLabel();
         lblTAddress = new javax.swing.JLabel();
         lblTContact = new javax.swing.JLabel();
-        lblDDept = new javax.swing.JLabel();
+        lblTDept = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
         list1 = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
@@ -87,7 +90,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
 
         lblTContact.setText("0774248681");
 
-        lblDDept.setText("ICT");
+        lblTDept.setText("ICT");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -145,7 +148,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
                             .addComponent(lblTEmail)
                             .addComponent(lblTAddress)
                             .addComponent(lblTContact)
-                            .addComponent(lblDDept))
+                            .addComponent(lblTDept))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -186,7 +189,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(lblDDept))))
+                            .addComponent(lblTDept))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -385,9 +388,9 @@ public class TechOfficerFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblDDept;
     private javax.swing.JLabel lblTAddress;
     private javax.swing.JLabel lblTContact;
+    private javax.swing.JLabel lblTDept;
     private javax.swing.JLabel lblTEmail;
     private javax.swing.JLabel lblTName;
     private java.awt.List list1;

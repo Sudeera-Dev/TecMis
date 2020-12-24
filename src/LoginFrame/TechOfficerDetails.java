@@ -83,11 +83,66 @@ public class TechOfficerDetails {
     
     public String setMail(){
         
-        String sql="SELECT email FROM staff WHERE emp_id=\""+uname+"\"";
+        String sql="SELECT * FROM staff WHERE emp_id=\""+uname+"\"";
+        String mail="";
         try {
             stmt = con.createStatement();
-            
-            
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                mail=rs.getString("email");
+            }
+            return mail;
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+      }
+    public String setAdd(){
+        
+        String sql="SELECT * FROM staff WHERE emp_id=\""+uname+"\"";
+        String add="";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                add=rs.getString("address");
+            }
+            return add;
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+      }
+        public String setCont(){
+        
+        String sql="SELECT * FROM staff WHERE emp_id=\""+uname+"\"";
+        String cont="";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                cont=rs.getString("mobile_no");
+            }
+            return cont;
+        } catch (SQLException ex) {
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+      }
+            public String setDept(){
+        
+        String sql="SELECT * FROM staff WHERE emp_id=\""+uname+"\"";
+        String dept="";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                dept=rs.getString("dep_id");
+            }
+            return dept;
         } catch (SQLException ex) {
             Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
