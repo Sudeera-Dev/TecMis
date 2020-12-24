@@ -29,8 +29,9 @@ public class AdminDetails {
         this.pass = pass;
         this.pass1 = pass1;
     }
-    AdminDetails(String uid){
+    AdminDetails(String uid,String role){
         this.uid = uid;
+        this.role = role;
     }
     private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
@@ -109,8 +110,73 @@ public class AdminDetails {
         
     }
     
-    public String validateTextSearch(){
-        return null;
+    public String validateText(){
+        
+        if (" ".equals(uid)){
+            return "ID is empty";
+        }else{
+            return deleteUser();
+        }
+        
+    }
+    
+    private String deleteUser(){
+        
+        int row=0;
+        String myStatement;
+        
+        if("STUDENT".equals(role)){
+            
+            myStatement="Select * from student where stu_id=\""+uid+"\"";
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(myStatement);
+            
+                while(rs.next()){
+                    row += 1;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(row!=1){
+                return "ID not found";
+            }else{
+            myStatement="update student set is_delete=1 where stu_id=\""+uid+"\"";
+                try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "user Deleted";
+            }
+        }else{
+            myStatement="Select * from staff where emp_id=\""+uid+"\"";
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(myStatement);
+            
+                while(rs.next()){
+                    row += 1;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(row !=1){
+                return "ID not found";
+            }else{
+            myStatement="update staff set is_delete=1 where emp_id=\""+uid+"\"";
+                try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "user Deleted";
+            }
+        }
         
     }
     
