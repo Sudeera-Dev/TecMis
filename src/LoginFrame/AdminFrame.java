@@ -126,9 +126,10 @@ public class AdminFrame extends javax.swing.JFrame {
         lblDep1 = new javax.swing.JLabel();
         cbCCDep = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtCCin = new javax.swing.JTextField();
+        cbCCCredit = new javax.swing.JComboBox<>();
+        lblCCResult = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -152,6 +153,8 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        cbCCCDep = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -601,14 +604,23 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel10.setText("Course Name");
 
         btnCCreate.setText("Create");
+        btnCCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCCreateActionPerformed(evt);
+            }
+        });
 
         lblDep1.setText("Department");
 
-        cbCCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
+        cbCCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         jLabel29.setText("Course Credit");
 
         jLabel30.setText("Lecture Incharge");
+
+        cbCCCredit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+
+        lblCCResult.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -632,12 +644,17 @@ public class AdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCCId)
                             .addComponent(txtCCname)
-                            .addComponent(jTextField8)
+                            .addComponent(txtCCin)
                             .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(cbCCDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 264, Short.MAX_VALUE))
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbCCDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbCCCredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(lblCCResult)
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -655,7 +672,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCCCredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDep1)
@@ -663,8 +680,10 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCCin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCCResult)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnCCreate)
                 .addContainerGap())
         );
@@ -688,7 +707,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
         lblDep2.setText("Department");
 
-        cbCCDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ET", "BST" }));
+        cbCCDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         jLabel28.setText("Lecture Incharge");
 
@@ -732,16 +751,15 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel27)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel26)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbCCDep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDep2))
@@ -793,7 +811,7 @@ public class AdminFrame extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Delete Course", jPanel15);
@@ -804,6 +822,15 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel17.setText("Course ID");
 
         jButton1.setText("Search");
+
+        jButton8.setText("See All");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        cbCCCDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -820,7 +847,10 @@ public class AdminFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton8)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbCCCDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addContainerGap())
         );
@@ -834,8 +864,11 @@ public class AdminFrame extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton8)
+                    .addComponent(cbCCCDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Search Course", jPanel16);
@@ -853,8 +886,8 @@ public class AdminFrame extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -867,7 +900,7 @@ public class AdminFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1373,6 +1406,24 @@ public class AdminFrame extends javax.swing.JFrame {
         getStatement(myStatement);
     }//GEN-LAST:event_btnANallActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        String dep=cbCCCDep.getSelectedItem().toString();
+        String myStatement="select * from course_module where dep_id=\""+dep+"\" and is_delete=0";
+        getStatement(myStatement);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void btnCCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCCreateActionPerformed
+        // TODO add your handling code here:
+        String cid=txtCCId.getText();
+        String credit =cbCCCredit.getSelectedItem().toString();
+        String cName = txtCCname.getText();
+        String cLec = txtCCin.getText();
+        String cDep = cbCCDep.getSelectedItem().toString();
+        CourseDetails courseDetails = new CourseDetails(cid,credit,cName,cLec,cDep);
+        lblCCResult.setText(courseDetails.validateCourseCreate());
+    }//GEN-LAST:event_btnCCreateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1414,6 +1465,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnNCreate;
     private javax.swing.JButton btnUSearch;
     private javax.swing.JComboBox<String> cbANdep;
+    private javax.swing.JComboBox<String> cbCCCDep;
+    private javax.swing.JComboBox<String> cbCCCredit;
     private javax.swing.JComboBox<String> cbCCDep;
     private javax.swing.JComboBox<String> cbCCDep1;
     private javax.swing.JComboBox<String> cbCCDep3;
@@ -1431,6 +1484,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1512,8 +1566,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lblCCResult;
     private javax.swing.JLabel lblCresult;
     private javax.swing.JLabel lblDep;
     private javax.swing.JLabel lblDep1;
@@ -1533,6 +1586,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCreateUser;
     private static javax.swing.JTable tblOutput;
     private javax.swing.JTextField txtCCId;
+    private javax.swing.JTextField txtCCin;
     private javax.swing.JTextField txtCCname;
     public javax.swing.JTextField txtCPass;
     public javax.swing.JTextField txtCPass1;

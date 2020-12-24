@@ -832,7 +832,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="97" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -854,8 +854,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTabbedPane2" pref="269" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTabbedPane2" min="-2" pref="310" max="-2" attributes="0"/>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -897,16 +897,23 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="txtCCId" max="32767" attributes="0"/>
                                                   <Component id="txtCCname" max="32767" attributes="0"/>
-                                                  <Component id="jTextField8" max="32767" attributes="0"/>
+                                                  <Component id="txtCCin" max="32767" attributes="0"/>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="cbCCDep" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="264" max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="cbCCDep" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="cbCCCredit" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jTextField7" alignment="1" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                                      <Component id="lblCCResult" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="273" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -928,7 +935,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbCCCredit" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -938,9 +945,11 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCCin" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lblCCResult" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="27" max="32767" attributes="0"/>
                                       <Component id="btnCCreate" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -974,6 +983,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Create"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCCreateActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="lblDep1">
                               <Properties>
@@ -985,7 +997,7 @@
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="3">
                                     <StringItem index="0" value="ICT"/>
-                                    <StringItem index="1" value="ET"/>
+                                    <StringItem index="1" value="ENT"/>
                                     <StringItem index="2" value="BST"/>
                                   </StringArray>
                                 </Property>
@@ -999,14 +1011,34 @@
                                 <Property name="text" type="java.lang.String" value="Course Credit"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField7">
-                            </Component>
                             <Component class="javax.swing.JLabel" name="jLabel30">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Lecture Incharge"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField8">
+                            <Component class="javax.swing.JTextField" name="txtCCin">
+                            </Component>
+                            <Component class="javax.swing.JComboBox" name="cbCCCredit">
+                              <Properties>
+                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                  <StringArray count="4">
+                                    <StringItem index="0" value="1"/>
+                                    <StringItem index="1" value="2"/>
+                                    <StringItem index="2" value="3"/>
+                                    <StringItem index="3" value="4"/>
+                                  </StringArray>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblCCResult">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Tahoma" size="13" style="1"/>
+                                </Property>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1065,23 +1097,20 @@
                                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cbCCDep1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblDep2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbCCDep1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDep2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1138,7 +1167,7 @@
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="3">
                                     <StringItem index="0" value="ICT"/>
-                                    <StringItem index="1" value="ET"/>
+                                    <StringItem index="1" value="ENT"/>
                                     <StringItem index="2" value="BST"/>
                                   </StringArray>
                                 </Property>
@@ -1206,7 +1235,7 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="151" max="32767" attributes="0"/>
+                                      <EmptySpace pref="192" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1259,7 +1288,10 @@
                                               <Component id="jTextField1" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="cbCCCDep" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1278,8 +1310,12 @@
                                           <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="151" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbCCCDep" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="192" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1304,6 +1340,28 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Search"/>
                               </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton8">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="See All"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JComboBox" name="cbCCCDep">
+                              <Properties>
+                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                  <StringArray count="3">
+                                    <StringItem index="0" value="ICT"/>
+                                    <StringItem index="1" value="ENT"/>
+                                    <StringItem index="2" value="BST"/>
+                                  </StringArray>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
