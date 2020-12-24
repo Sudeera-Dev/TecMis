@@ -51,10 +51,10 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        txtEFname = new javax.swing.JTextField();
-        txtEFname1 = new javax.swing.JTextField();
-        txtEFname2 = new javax.swing.JTextField();
-        txtEFname3 = new javax.swing.JTextField();
+        ToFname = new javax.swing.JTextField();
+        ToLname = new javax.swing.JTextField();
+        ToAdd = new javax.swing.JTextField();
+        ToCon = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -210,6 +210,11 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         jLabel39.setText("Contact");
 
         jButton7.setText("Update");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -229,10 +234,10 @@ public class TechOfficerFrame extends javax.swing.JFrame {
                             .addComponent(jLabel39))
                         .addGap(74, 74, 74)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEFname3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                            .addComponent(txtEFname2)
-                            .addComponent(txtEFname1)
-                            .addComponent(txtEFname)))
+                            .addComponent(ToCon, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                            .addComponent(ToAdd)
+                            .addComponent(ToLname)
+                            .addComponent(ToFname)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton7)))
@@ -245,19 +250,19 @@ public class TechOfficerFrame extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ToFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ToLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ToAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ToCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7)
@@ -308,6 +313,18 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         techTimetableFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        String fname = ToFname.getText();
+        String lname = ToLname.getText();
+        String address = ToAdd.getText();
+        String contact = ToCon.getText();
+        
+        TechOfficerDetails techOfficerDetails = new TechOfficerDetails(fname,lname,address,contact);
+        
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,6 +361,10 @@ public class TechOfficerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ToAdd;
+    private javax.swing.JTextField ToCon;
+    private javax.swing.JTextField ToFname;
+    private javax.swing.JTextField ToLname;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -370,9 +391,5 @@ public class TechOfficerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSName;
     private java.awt.List list1;
     private java.awt.Panel panel1;
-    private javax.swing.JTextField txtEFname;
-    private javax.swing.JTextField txtEFname1;
-    private javax.swing.JTextField txtEFname2;
-    private javax.swing.JTextField txtEFname3;
     // End of variables declaration//GEN-END:variables
 }
