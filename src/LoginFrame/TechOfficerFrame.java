@@ -5,6 +5,12 @@
  */
 package LoginFrame;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -12,7 +18,8 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class TechOfficerFrame extends javax.swing.JFrame {
-
+    MyDBConnector db = new MyDBConnector();
+    Connection con = db.getMyConnection();
     /**
      * Creates new form TechOfficerFrame
      */
@@ -25,8 +32,38 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         lblTAddress.setText(techOfficerDetails.setAdd());
         lblTContact.setText(techOfficerDetails.setCont());
         lblTDept.setText(techOfficerDetails.setDept());
+        displayNotice();
     }
 
+    private void displayNotice(){
+        int row=0;
+        String dep="";
+        String input ="select * from staff where emp_id=\""+LoginTest.uid+"\" and is_delete=\"0\"";
+        PreparedStatement tmt;
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    dep=rs.getString("dep_id");
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        input ="select * from notice where dep_id=\""+dep+"\" and is_delete=\"0\"";
+        
+        
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    row += 1;
+                    listTNotice.add(row+".   "+rs.getString("notice"));
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +87,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         lblTContact = new javax.swing.JLabel();
         lblTDept = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
-        list1 = new java.awt.List();
+        listTNotice = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -134,7 +171,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listTNotice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
@@ -198,7 +235,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(3, 3, 3)
-                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listTNotice, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -393,7 +430,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTDept;
     private javax.swing.JLabel lblTEmail;
     private javax.swing.JLabel lblTName;
-    private java.awt.List list1;
+    private java.awt.List listTNotice;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }
