@@ -321,7 +321,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         String contact = ToCon.getText();
         
         TechOfficerDetails techOfficerDetails = new TechOfficerDetails(fname,lname,address,contact);
-        
+        techOfficerDetails.updateData();
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
