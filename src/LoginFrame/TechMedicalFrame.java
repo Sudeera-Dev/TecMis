@@ -199,7 +199,7 @@ public class TechMedicalFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Ref = ToMRef.getText();
         String Cid = ToMCid.getText();
-        String Sid = ToMCid.getText();
+        String Sid = ToMSid.getText();
         String date = ToMDate.getText();
         
         TechMedicalDetails techMedicalDetails = new TechMedicalDetails(Ref,Cid,Sid,date);
