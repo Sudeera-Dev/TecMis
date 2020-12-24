@@ -47,7 +47,7 @@ public class TechMedicalDetails {
      
     
     public String AddDate(){
-        String sql =  "INSERT INTO medical(ref_id, stu_id, date, c_id, end_date, time, status) VALUES (\""+ref+"\" ,\""+sid+"\",\""+date+"\",\""+cid+"\",\""+edate+"\",\""+time+"\",\""+stat+"\")";
+        String sql =  "INSERT INTO medical(ref_id, stu_id, date, c_id, end_date, time, status, is_delete) VALUES (\""+ref+"\" ,\""+sid+"\",\""+date+"\",\""+cid+"\",\""+edate+"\",\""+time+"\",\""+stat+"\",'0')";
         
         try {
             stmt = con.createStatement();
