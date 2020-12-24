@@ -322,7 +322,7 @@ public class TechOfficerFrame extends javax.swing.JFrame {
         
         TechOfficerDetails techOfficerDetails = new TechOfficerDetails(fname,lname,address,contact);
         
-        
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

@@ -45,7 +45,7 @@ public class TechOfficerDetails {
      
     private String updateData(String fname,String lname,String address,String contact,String uname){
         
-        String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id=\""+uname+"\"";
+        String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id='TEC001'";
         try {
             stmt = con.createStatement();
             stmt = con.prepareStatement(sql);
