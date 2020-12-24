@@ -1400,7 +1400,7 @@ public class AdminFrame extends javax.swing.JFrame {
         lblCCResult.setText(courseDetails.validateCourseCreate());
     }//GEN-LAST:event_btnCCreateActionPerformed
 
-<<<<<<< Updated upstream
+
     private void cbCDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCDepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCDepActionPerformed
@@ -1408,14 +1408,14 @@ public class AdminFrame extends javax.swing.JFrame {
     private void cbCRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCRoleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCRoleActionPerformed
-=======
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String cid=txtCDCid.getText();
         CourseDetails courseDetails = new CourseDetails(cid);
         lblCDreturn.setText(courseDetails.validateCourse());
     }//GEN-LAST:event_jButton2ActionPerformed
->>>>>>> Stashed changes
+
 
     /**
      * @param args the command line arguments
