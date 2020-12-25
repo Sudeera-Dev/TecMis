@@ -19,7 +19,7 @@ import net.proteanit.sql.DbUtils;
 public class AdminFrame extends javax.swing.JFrame {
     String input;
     
-     MyDBConnector db = new MyDBConnector();
+    MyDBConnector db = new MyDBConnector();
     Connection con = db.getMyConnection();
     /**
      * Creates new form AdminFrame
@@ -390,6 +390,11 @@ public class AdminFrame extends javax.swing.JFrame {
         });
 
         cbUJob.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "STUDENT", "LEC", "TEC_OFF" }));
+        cbUJob.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbUJobActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1470,6 +1475,10 @@ public class AdminFrame extends javax.swing.JFrame {
         NoticeDetails noticeDetails = new NoticeDetails(nid,dep,notice);
         lblANEResult.setText(noticeDetails.validateNoticeEdit());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbUJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbUJobActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbUJobActionPerformed
 
 
     /**
