@@ -26,6 +26,13 @@ public class StudentFrame extends javax.swing.JFrame {
     public StudentFrame() {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        StudentDetails studentDetails = new StudentDetails();
+        lblSName.setText(studentDetails.setName());
+        lblSEmail.setText(studentDetails.setMail());
+        lblSAddress.setText(studentDetails.setAdd());
+        lblSContact.setText(studentDetails.setCont());
+        lblSDept.setText(studentDetails.setDept());
+        
         displayNotice();
     }
     
@@ -89,10 +96,10 @@ public class StudentFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        txtEFname = new javax.swing.JTextField();
-        txtEFname1 = new javax.swing.JTextField();
-        txtEFname2 = new javax.swing.JTextField();
-        txtEFname3 = new javax.swing.JTextField();
+        sFname = new javax.swing.JTextField();
+        sLname = new javax.swing.JTextField();
+        sAddress = new javax.swing.JTextField();
+        sContact = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -276,6 +283,11 @@ public class StudentFrame extends javax.swing.JFrame {
         jLabel39.setText("Contact");
 
         jButton7.setText("Update");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -295,10 +307,10 @@ public class StudentFrame extends javax.swing.JFrame {
                             .addComponent(jLabel39))
                         .addGap(74, 74, 74)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEFname3, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                            .addComponent(txtEFname2)
-                            .addComponent(txtEFname1)
-                            .addComponent(txtEFname)))
+                            .addComponent(sContact, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                            .addComponent(sAddress)
+                            .addComponent(sLname)
+                            .addComponent(sFname)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton7)))
@@ -311,19 +323,19 @@ public class StudentFrame extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEFname3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7)
@@ -387,6 +399,18 @@ public class StudentFrame extends javax.swing.JFrame {
         StudentResultsFrame studentResultsFrame = new StudentResultsFrame();
         studentResultsFrame.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        String fname = sFname.getText();
+        String lname = sLname.getText();
+        String address = sAddress.getText();
+        String contact = sContact.getText();
+        
+        StudentDetails studentDetails = new StudentDetails(fname,lname,address,contact);
+        studentDetails.updateData();
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,9 +476,9 @@ public class StudentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSName;
     private java.awt.List listSNotice;
     private java.awt.Panel panel1;
-    private javax.swing.JTextField txtEFname;
-    private javax.swing.JTextField txtEFname1;
-    private javax.swing.JTextField txtEFname2;
-    private javax.swing.JTextField txtEFname3;
+    private javax.swing.JTextField sAddress;
+    private javax.swing.JTextField sContact;
+    private javax.swing.JTextField sFname;
+    private javax.swing.JTextField sLname;
     // End of variables declaration//GEN-END:variables
 }
