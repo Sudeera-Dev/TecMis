@@ -159,7 +159,11 @@ public class LoginFrame extends javax.swing.JFrame {
         String pass = txtPass.getText();
         
         LoginTest loginTest = new LoginTest(uname,pass,loginMode);
-        lblError.setText(loginTest.validateLogin());
+        String result=loginTest.validateLogin();
+        lblError.setText(result);
+        if ("Sucess".equals(result)){
+            dispose();
+        }
         
     }//GEN-LAST:event_btLoginActionPerformed
 
