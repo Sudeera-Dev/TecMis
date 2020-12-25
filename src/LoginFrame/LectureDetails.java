@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class LectureDetails {
     private String uname;
+    private String fname,lname,address,contact;
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
@@ -27,9 +29,39 @@ public class LectureDetails {
        Connection myConn = mdc.getMyConnection();
         return myConn;
     }
-    LectureDetails(){
-          uname=LoginTest.uid;
+    LectureDetails(String fname,String lname,String address,String contact){
+        this.fname = fname;
+        this.lname = lname;
+        this.address = address;
+        this.contact = contact;
+        uname=LoginTest.uid;
+          
+          
     }
+   LectureDetails(){
+        uname=LoginTest.uid;
+    }
+   
+    public String updateData(){
+        
+        String sql =  "UPDATE staff SET f_name=\""+fname+"\",l_name=\""+lname+"\",address=\""+address+"\",mobile_no=\""+contact+"\" WHERE emp_id=\""+uname+"\"";
+        try {
+            stmt = con.createStatement();
+            stmt = con.prepareStatement(sql);
+            stmt.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Updated SuccsesFully");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            Logger.getLogger(TechOfficerDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        return null;
+    
+    
+    } 
+ 
     
     public String setName(){
         String myStatement="Select * from staff where emp_id=\""+uname+"\"";
@@ -135,8 +167,9 @@ public class LectureDetails {
         }
         
         return null;
-      }        
+      }   
         
+
     
     
 }
