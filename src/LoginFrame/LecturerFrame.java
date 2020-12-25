@@ -26,6 +26,16 @@ public class LecturerFrame extends javax.swing.JFrame {
     public LecturerFrame() {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        LectureDetails lectureDetails = new LectureDetails();
+        lblLName.setText(lectureDetails.setName());
+        lblLEmail.setText(lectureDetails.setEmail());
+        lblLAddress.setText(lectureDetails.setAddress());
+        lblLContact.setText(lectureDetails.setContact());
+        lblLDept.setText(lectureDetails.setDept());
+        lblLDept1.setText(lectureDetails.setDept1());
+        
+        
+        
         displayNotice();
         
     }
@@ -76,11 +86,11 @@ public class LecturerFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblSName = new javax.swing.JLabel();
-        lblSEmail = new javax.swing.JLabel();
-        lblSAddress = new javax.swing.JLabel();
-        lblSContact = new javax.swing.JLabel();
-        lblSDept = new javax.swing.JLabel();
+        lblLName = new javax.swing.JLabel();
+        lblLEmail = new javax.swing.JLabel();
+        lblLAddress = new javax.swing.JLabel();
+        lblLContact = new javax.swing.JLabel();
+        lblLDept = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
         listLNotice = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
@@ -90,7 +100,7 @@ public class LecturerFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        lblSDept1 = new javax.swing.JLabel();
+        lblLDept1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -119,15 +129,15 @@ public class LecturerFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Department :");
 
-        lblSName.setText("Sudeera Kavishka");
+        lblLName.setText("Sudeera Kavishka");
 
-        lblSEmail.setText("Sudeerakavishka7@gmail.com");
+        lblLEmail.setText("Sudeerakavishka7@gmail.com");
 
-        lblSAddress.setText("no. 32, samanpura, olugantota, balangoda");
+        lblLAddress.setText("no. 32, samanpura, olugantota, balangoda");
 
-        lblSContact.setText("0774248681");
+        lblLContact.setText("0774248681");
 
-        lblSDept.setText("ICT");
+        lblLDept.setText("ICT");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -182,7 +192,7 @@ public class LecturerFrame extends javax.swing.JFrame {
 
         jLabel10.setText("Course :");
 
-        lblSDept1.setText("Object Oriented Development");
+        lblLDept1.setText("Object Oriented Development");
 
         jButton5.setText("Results");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -209,12 +219,12 @@ public class LecturerFrame extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSName)
-                            .addComponent(lblSEmail)
-                            .addComponent(lblSAddress)
-                            .addComponent(lblSContact)
-                            .addComponent(lblSDept)
-                            .addComponent(lblSDept1))
+                            .addComponent(lblLName)
+                            .addComponent(lblLEmail)
+                            .addComponent(lblLAddress)
+                            .addComponent(lblLContact)
+                            .addComponent(lblLDept)
+                            .addComponent(lblLDept1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -245,27 +255,27 @@ public class LecturerFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(lblSName))
+                            .addComponent(lblLName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(lblSEmail))
+                            .addComponent(lblLEmail))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(lblSAddress))
+                            .addComponent(lblLAddress))
                         .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(lblSContact))
+                            .addComponent(lblLContact))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(lblSDept))
+                            .addComponent(lblLDept))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(lblSDept1))))
+                            .addComponent(lblLDept1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -472,12 +482,12 @@ public class LecturerFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblSAddress;
-    private javax.swing.JLabel lblSContact;
-    private javax.swing.JLabel lblSDept;
-    private javax.swing.JLabel lblSDept1;
-    private javax.swing.JLabel lblSEmail;
-    private javax.swing.JLabel lblSName;
+    private javax.swing.JLabel lblLAddress;
+    private javax.swing.JLabel lblLContact;
+    private javax.swing.JLabel lblLDept;
+    private javax.swing.JLabel lblLDept1;
+    private javax.swing.JLabel lblLEmail;
+    private javax.swing.JLabel lblLName;
     private java.awt.List listLNotice;
     private java.awt.Panel panel1;
     private javax.swing.JTextField txtEFname;

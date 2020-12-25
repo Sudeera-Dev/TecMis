@@ -88,12 +88,12 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblSName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSContact" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSDept" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSDept1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLContact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLDept" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLDept1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="panel1" min="-2" max="-2" attributes="0"/>
@@ -132,32 +132,32 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSDept" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLDept" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSDept1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLDept1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -205,27 +205,27 @@
                 <Property name="text" type="java.lang.String" value="Department :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSName">
+            <Component class="javax.swing.JLabel" name="lblLName">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sudeera Kavishka"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSEmail">
+            <Component class="javax.swing.JLabel" name="lblLEmail">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sudeerakavishka7@gmail.com"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSAddress">
+            <Component class="javax.swing.JLabel" name="lblLAddress">
               <Properties>
                 <Property name="text" type="java.lang.String" value="no. 32, samanpura, olugantota, balangoda"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSContact">
+            <Component class="javax.swing.JLabel" name="lblLContact">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0774248681"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSDept">
+            <Component class="javax.swing.JLabel" name="lblLDept">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ICT"/>
               </Properties>
@@ -305,7 +305,7 @@
                 <Property name="text" type="java.lang.String" value="Course :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSDept1">
+            <Component class="javax.swing.JLabel" name="lblLDept1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Object Oriented Development"/>
               </Properties>
