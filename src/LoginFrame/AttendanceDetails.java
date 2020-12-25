@@ -152,7 +152,7 @@ class AttendanceDetails {
             Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
  
-        myStatement="select * from "+dep.toLowerCase()+"_"+cid+"_attendance where stu_id=\""+sid+"\" and session_type=\""+type+"\" and attendance_status=1 and is_delete=0";
+        myStatement="select * from "+dep.toLowerCase()+"_"+cid+"_attendance where session_type=\""+type+"\" and attendance_status=1 and is_delete=0";
         
         try {
             stmt = con.createStatement();
