@@ -329,10 +329,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEFname3" alignment="0" pref="486" max="32767" attributes="0"/>
-                                  <Component id="txtEFname2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEFname1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEFname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sContact" alignment="0" pref="486" max="32767" attributes="0"/>
+                                  <Component id="sAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sLname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sFname" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -351,22 +351,22 @@
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtEFname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sFname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtEFname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sLname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtEFname2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtEFname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sContact" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -385,13 +385,13 @@
                 <Property name="text" type="java.lang.String" value="Edit Details"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEFname">
+            <Component class="javax.swing.JTextField" name="sFname">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEFname1">
+            <Component class="javax.swing.JTextField" name="sLname">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEFname2">
+            <Component class="javax.swing.JTextField" name="sAddress">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEFname3">
+            <Component class="javax.swing.JTextField" name="sContact">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -417,6 +417,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
