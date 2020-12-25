@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
     
     
-public class ResultTypeOne {
+public class ResultTypeThree {
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
@@ -31,9 +31,14 @@ public class ResultTypeOne {
      double quiz2;
      double quiz3;
 
-     double mid;
+     double assess1;
+     double assess2;
+     double assess3;
+     
+     
      double final_theory;
      double final_prac;
+     
      
      String ca_status;
      String grade;
@@ -46,16 +51,17 @@ public class ResultTypeOne {
         return myConn;
     }
     
-    public ResultTypeOne(String stu_id,String subject) {
+    public ResultTypeThree(String stu_id,String subject) {
         
         this.stu_id = stu_id;
         this.subject = subject;
+      
         
     }
     public void subjectData(){
         
  
-        String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
+         String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
          
          
          
@@ -64,23 +70,26 @@ public class ResultTypeOne {
             ResultSet rs = stmt.executeQuery(myStatement);
             
             while (rs.next()){
-           
+              
             
-             quiz1 = rs.getFloat("quiz_1");
-             quiz2 = rs.getFloat("quiz_2");
-             quiz3 = rs.getFloat("quiz_3");
+             quiz1 = rs.getDouble("quiz_1");
+             quiz2 = rs.getDouble("quiz_2");
+             quiz3 = rs.getDouble("quiz_3");
              
-             mid = rs.getFloat("mid");
-             final_theory = rs.getFloat("final_theory");
-             final_prac = rs.getFloat("final_practical");
+             assess1 = rs.getDouble("assess_1");
+             assess2 = rs.getDouble("assess_2");
+             assess3 = rs.getDouble("assess_3");
              
              
-      
-            }
+             final_theory = rs.getDouble("final_theory");
+             final_prac = rs.getDouble("final_practical");
+             
+
+            }           
             
         } catch (SQLException ex) {
             
-            Logger.getLogger(ResultTypeOne.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResultTypeThree.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }
@@ -88,11 +97,13 @@ public class ResultTypeOne {
  
 
    
- /*************** calculating  CA Marks *******************************/
+ /*************** calculating  CA Marks
+     * @return  *******************************/
    
    
    
 public double caTotal(){
+    
     
     double caTotal;
     double temp;
@@ -106,16 +117,31 @@ public double caTotal(){
                    quizTotal[j] = temp;    
                }     
             }     
-    }    
+    }  
     
-    caTotal = ((quizTotal[0]+quizTotal[1])/20)+(mid/5);
+    double[] assessTotal = {assess1,assess2,assess3};
+    for (int i = 0; i < assessTotal.length; i++) {     
+            for (int j = i+1; j < assessTotal.length; j++) {     
+               if(assessTotal[i] < assessTotal[j]) {    
+                   temp = assessTotal[i];    
+                   assessTotal[i] = assessTotal[j];    
+                   assessTotal[j] = temp;    
+               }     
+            }     
+    }
+    
+    caTotal = ((quizTotal[0]+quizTotal[1])/20)+((assessTotal[0]+assessTotal[1])/10);
     caTotal =  Math.round(caTotal*100.0)/100.0;
     
+    
+      
+      
     return caTotal;
 }
 
 
- /*************** Subject Total Marks *******************************/
+ /*************** Subject Total Marks
+     * @return  *******************************/
 
 
 public double subjectTotal(){
@@ -126,6 +152,8 @@ public double subjectTotal(){
     
     subjectTotal = (final_theory/100*40)+(final_prac/100*30)+caTotal;
     subjectTotal =  Math.round(subjectTotal*100.0)/100.0;
+    
+    
     
     if (caTotal>=15){
           ca_status="PASS";  
@@ -185,6 +213,7 @@ public double subjectTotal(){
      }else {
           ca_status="FAIL";  
       }
+    
     
     
     

@@ -28,6 +28,10 @@ public class NoticeDetails {
         this.notice=notice;
     }
     
+    NoticeDetails(String nid){
+        this.nid=nid;
+    }
+    
     private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
         return myConn;
@@ -39,12 +43,12 @@ public class NoticeDetails {
        }else if("".equals(notice)){
            return "Notice is empty";
        }else {
-           return insertData(nid,dep,notice);
+           return insertData();
        }
         
     }
     
-    private String insertData(String nid,String dep,String notice){
+    private String insertData(){
         int row=0;
         String myStatement;
         myStatement="Select * from notice where notice_id=\""+nid+"\"";
@@ -74,4 +78,41 @@ public class NoticeDetails {
         
     }
     
+    public String validateNoticeDelete(){
+        if("".equals(nid)){
+           return "Notice ID is empty";
+       }else {
+           return deleteData();
+       }
+        
+    }
+    
+    private String deleteData(){
+        int row=0;
+        String myStatement;
+        myStatement="Select * from notice where notice_id=\""+nid+"\"";
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(myStatement);
+            
+                while(rs.next()){
+                    row += 1;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(row!=1){
+                return "ID does not Exist";
+            }else{
+            myStatement="update notice set is_delete=1 where notice_id=\""+nid+"\"";
+                try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "notice Deleted";
+            }
+    }
 }

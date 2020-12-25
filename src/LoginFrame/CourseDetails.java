@@ -30,6 +30,10 @@ public class CourseDetails {
         this.cDep=cDep;
     }
     
+    CourseDetails(String cid){
+        this.cid=cid;
+    }
+    
     private Connection getConnection() {
         Connection myConn = mdc.getMyConnection();
         return myConn;
@@ -94,4 +98,38 @@ public class CourseDetails {
         
     }
  
+    public String validateCourse(){
+        int row=0;
+        String myStatement;
+        if("".equals(cid)){
+            return "Course ID is empty";
+        }else{
+            myStatement="Select * from course_module where c_id=\""+cid+"\"";
+            try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(myStatement);
+            
+            while(rs.next()){
+                row += 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(row!=1){
+            return "No Course found";
+        }else{
+            myStatement="update course_module set is_delete=1 where c_id=\""+cid+"\"";
+            try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            return "Course Deletd";
+        }
+            
+        }
+        
+    }
+    
 }

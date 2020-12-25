@@ -47,11 +47,11 @@ public class AdminDetails {
        }else if(!pass1.equals(pass)){
            return "Password doesn't match";
        }else {
-           return insertData(uid,dep,role,pass);
+           return insertData();
        }     
     }
 
-    private String insertData(String uid,String dep,String role,String pass){
+    private String insertData(){
         int row=0;
         String myStatement;
         
@@ -180,4 +180,75 @@ public class AdminDetails {
         
     }
     
+    public String validateEditText(){
+        if("".equals(uid)){
+           return "ID is empty";
+       }else if("".equals(pass)){
+           return "Password is empty";
+       }else if(!pass1.equals(pass)){
+           return "Password doesn't match";
+       }else {
+           return EditData();
+       }
+        
+    }
+    
+    private String EditData(){
+        int row=0;
+        String myStatement;
+        
+        if("STUDENT".equals(role)){
+            
+            myStatement="Select * from student where stu_id=\""+uid+"\"";
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(myStatement);
+            
+                while(rs.next()){
+                    row += 1;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(row!=1){
+                return "ID does not Exist";
+            }else{
+            myStatement="update student set password= \""+pass+"\" where stu_id= \""+uid+"\"";
+                try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "user updated";
+            }
+        }else{
+            myStatement="Select * from staff where emp_id=\""+uid+"\"";
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(myStatement);
+            
+                while(rs.next()){
+                    row += 1;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(row!=1){
+                return "ID doesn't Exist";
+            }else{
+            myStatement="update staff set password= \""+pass+"\" where emp_id= \""+uid+"\"";
+                try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "user updated";
+            }
+        }
+        
+    }
 }

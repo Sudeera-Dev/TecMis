@@ -5,6 +5,12 @@
  */
 package LoginFrame;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -12,15 +18,45 @@ import javax.swing.JFrame;
  * @author KrzYoFreaK
  */
 public class StudentFrame extends javax.swing.JFrame {
-
+    MyDBConnector db = new MyDBConnector();
+    Connection con = db.getMyConnection();
     /**
      * Creates new form StudentFrame
      */
     public StudentFrame() {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+        displayNotice();
     }
-
+    
+    private void displayNotice(){
+        int row=0;
+        String dep="";
+        String input ="select * from student where stu_id=\""+LoginTest.uid+"\" and is_delete=\"0\"";
+        PreparedStatement tmt;
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    dep=rs.getString("dep_id");
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        input ="select * from notice where dep_id=\""+dep+"\" and is_delete=\"0\"";
+        
+        
+         try {
+             tmt = con.prepareStatement(input);
+             ResultSet rs = tmt.executeQuery();
+             while(rs.next()){
+                    row += 1;
+                    listSNotice.add(row+".   "+rs.getString("notice"));
+                }
+         } catch (SQLException ex) {
+             Logger.getLogger(LecturerFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +80,7 @@ public class StudentFrame extends javax.swing.JFrame {
         lblSContact = new javax.swing.JLabel();
         lblSDept = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
-        list1 = new java.awt.List();
+        listSNotice = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -183,7 +219,7 @@ public class StudentFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(listSNotice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +258,7 @@ public class StudentFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(3, 3, 3)
-                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listSNotice, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -414,7 +450,7 @@ public class StudentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSDept;
     private javax.swing.JLabel lblSEmail;
     private javax.swing.JLabel lblSName;
-    private java.awt.List list1;
+    private java.awt.List listSNotice;
     private java.awt.Panel panel1;
     private javax.swing.JTextField txtEFname;
     private javax.swing.JTextField txtEFname1;

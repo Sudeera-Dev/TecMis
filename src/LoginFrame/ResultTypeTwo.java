@@ -1,9 +1,11 @@
+package LoginFrame;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LoginFrame;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,7 +21,7 @@ import java.util.logging.Logger;
 
     
     
-public class ResultTypeOne {
+public class ResultTypeTwo{
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
@@ -27,18 +29,24 @@ public class ResultTypeOne {
     
      String stu_id;
      String subject;
+     
      double quiz1;
      double quiz2;
      double quiz3;
+     double quiz4;
+     
+     double assess1;
+     double assess2;
+     
 
      double mid;
      double final_theory;
-     double final_prac;
      
      String ca_status;
      String grade;
      double sgpa;
      
+
 
     
       private Connection getConnection() {
@@ -46,7 +54,7 @@ public class ResultTypeOne {
         return myConn;
     }
     
-    public ResultTypeOne(String stu_id,String subject) {
+    public ResultTypeTwo(String stu_id,String subject) {
         
         this.stu_id = stu_id;
         this.subject = subject;
@@ -55,7 +63,7 @@ public class ResultTypeOne {
     public void subjectData(){
         
  
-        String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
+         String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
          
          
          
@@ -64,23 +72,24 @@ public class ResultTypeOne {
             ResultSet rs = stmt.executeQuery(myStatement);
             
             while (rs.next()){
+                quiz1 = rs.getFloat("quiz_1");
+                quiz2 = rs.getFloat("quiz_2");
+                quiz3 = rs.getFloat("quiz_3");
+                quiz4 = rs.getFloat("quiz_4");
+
+                assess1 = rs.getFloat("assess_1");
+                assess2 = rs.getFloat("assess_2");
+
+                mid = rs.getFloat("mid");
+                final_theory = rs.getFloat("final_theory");
+                
            
-            
-             quiz1 = rs.getFloat("quiz_1");
-             quiz2 = rs.getFloat("quiz_2");
-             quiz3 = rs.getFloat("quiz_3");
-             
-             mid = rs.getFloat("mid");
-             final_theory = rs.getFloat("final_theory");
-             final_prac = rs.getFloat("final_practical");
-             
-             
-      
             }
+            
             
         } catch (SQLException ex) {
             
-            Logger.getLogger(ResultTypeOne.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResultTypeTwo.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }
@@ -97,7 +106,7 @@ public double caTotal(){
     double caTotal;
     double temp;
     
-    double[] quizTotal = {quiz1,quiz2,quiz3};
+    double[] quizTotal = {quiz1,quiz2,quiz3,quiz4};
     for (int i = 0; i < quizTotal.length; i++) {     
             for (int j = i+1; j < quizTotal.length; j++) {     
                if(quizTotal[i] < quizTotal[j]) {    
@@ -108,9 +117,8 @@ public double caTotal(){
             }     
     }    
     
-    caTotal = ((quizTotal[0]+quizTotal[1])/20)+(mid/5);
+    caTotal = ((quizTotal[0]+quizTotal[1]+quizTotal[2])/30)+(assess1+assess2)/20+mid/5;
     caTotal =  Math.round(caTotal*100.0)/100.0;
-    
     return caTotal;
 }
 
@@ -124,10 +132,10 @@ public double subjectTotal(){
     double caTotal = caTotal();
     
     
-    subjectTotal = (final_theory/100*40)+(final_prac/100*30)+caTotal;
+    subjectTotal = (final_theory/100*60)+caTotal;
     subjectTotal =  Math.round(subjectTotal*100.0)/100.0;
     
-    if (caTotal>=15){
+    if (caTotal>=20){
           ca_status="PASS";  
      
     
@@ -185,7 +193,6 @@ public double subjectTotal(){
      }else {
           ca_status="FAIL";  
       }
-    
     
     
  return subjectTotal;

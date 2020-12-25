@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
     
     
-public class ResultTypeOne {
+public class ResultTypeFour {
     
     MyDBConnector mdc = new MyDBConnector();
     Connection con = getConnection();
@@ -31,14 +31,17 @@ public class ResultTypeOne {
      double quiz2;
      double quiz3;
 
-     double mid;
+     double assess1;
+     double assess2;
+     double assess3;
+     
+     
      double final_theory;
      double final_prac;
      
      String ca_status;
      String grade;
      double sgpa;
-     
 
     
       private Connection getConnection() {
@@ -46,7 +49,7 @@ public class ResultTypeOne {
         return myConn;
     }
     
-    public ResultTypeOne(String stu_id,String subject) {
+    public ResultTypeFour(String stu_id,String subject) {
         
         this.stu_id = stu_id;
         this.subject = subject;
@@ -55,32 +58,31 @@ public class ResultTypeOne {
     public void subjectData(){
         
  
-        String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
+         String myStatement = "SELECT * FROM " + subject + " WHERE stu_id=\""+stu_id+"\"";
          
          
          
         try {
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(myStatement);
-            
-            while (rs.next()){
-           
-            
-             quiz1 = rs.getFloat("quiz_1");
-             quiz2 = rs.getFloat("quiz_2");
-             quiz3 = rs.getFloat("quiz_3");
-             
-             mid = rs.getFloat("mid");
-             final_theory = rs.getFloat("final_theory");
-             final_prac = rs.getFloat("final_practical");
-             
-             
+             while (rs.next()){
+                quiz1 = rs.getFloat("quiz_1");
+                quiz2 = rs.getFloat("quiz_2");
+                quiz3 = rs.getFloat("quiz_3");
+
+                assess1 = rs.getFloat("assess_1");
+                assess2 = rs.getFloat("assess_2");
+                assess3 = rs.getFloat("assess_3");
+
+
+                final_theory = rs.getFloat("final_theory");
+                final_prac = rs.getFloat("final_practical");
       
-            }
+             }
             
         } catch (SQLException ex) {
             
-            Logger.getLogger(ResultTypeOne.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResultTypeFour.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }
@@ -106,11 +108,21 @@ public double caTotal(){
                    quizTotal[j] = temp;    
                }     
             }     
-    }    
+    }  
     
-    caTotal = ((quizTotal[0]+quizTotal[1])/20)+(mid/5);
+    double[] assessTotal = {assess1,assess2,assess3};
+    for (int i = 0; i < assessTotal.length; i++) {     
+            for (int j = i+1; j < assessTotal.length; j++) {     
+               if(assessTotal[i] < assessTotal[j]) {    
+                   temp = assessTotal[i];    
+                   assessTotal[i] = assessTotal[j];    
+                   assessTotal[j] = temp;    
+               }     
+            }     
+    }
+    
+    caTotal = ((quizTotal[0]+quizTotal[1])/20)+((assessTotal[0]+assessTotal[1])/20);
     caTotal =  Math.round(caTotal*100.0)/100.0;
-    
     return caTotal;
 }
 
@@ -124,7 +136,7 @@ public double subjectTotal(){
     double caTotal = caTotal();
     
     
-    subjectTotal = (final_theory/100*40)+(final_prac/100*30)+caTotal;
+    subjectTotal = (final_theory/100*30)+(final_prac/100*40)+caTotal;
     subjectTotal =  Math.round(subjectTotal*100.0)/100.0;
     
     if (caTotal>=15){
