@@ -39,3 +39,4 @@ build/classes/LoginFrame/AdminDetails.class
 *.properties
 src/LoginFrame/MyDBConnector.java
 *.class
+*.class

@@ -5,7 +5,12 @@
  */
 package LoginFrame;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -16,10 +21,32 @@ public class StudentAttendanceFrame extends javax.swing.JFrame {
     /**
      * Creates new form StudentAttendanceFrame
      */
+    String input,uname;
+    MyDBConnector mdc = new MyDBConnector();
+    Connection con = mdc.getMyConnection();
+    
     public StudentAttendanceFrame() {
         initComponents();
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
     }
+    
+       public void getStatement(String input){
+        this.input = input;
+        displayTable();
+    }
+        public void displayTable(){
+        
+        try {
+            PreparedStatement tmt;
+            tmt = con.prepareStatement(input);
+            ResultSet rs = tmt.executeQuery();
+            LTab.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            System.out.println("error");
+        }
+        
+    }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,14 +59,19 @@ public class StudentAttendanceFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        LTab = new javax.swing.JTable();
+        cbCourse = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        lblPre = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        cbType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Attendance");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        LTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,7 +82,22 @@ public class StudentAttendanceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(LTab);
+
+        cbCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT1111", "ICT1112", "ICT1121", "ICT1123", "ICT1131", "ICT1141" }));
+
+        jLabel2.setText("Precentage :");
+
+        lblPre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jButton1.setText("get");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "T", "P" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,22 +106,60 @@ public class StudentAttendanceFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cbCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addGap(28, 28, 28)
+                .addComponent(lblPre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblPre))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String course = cbCourse.getSelectedItem().toString();
+        String dep= course.substring(0,3);
+        String cid= course.substring(3,7);
+        String type = cbType.getSelectedItem().toString();
+        AttendanceDetails attendanceDetails = new AttendanceDetails(dep,cid,type);
+        lblPre.setText(Float.toString(attendanceDetails.test()));
+        
+        String myStatement ="select * from "+dep.toLowerCase()+"_"+cid+"_attendance where stu_id=\""+LoginTest.uid+"\"";
+        getStatement(myStatement);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,8 +197,13 @@ public class StudentAttendanceFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable LTab;
+    private javax.swing.JComboBox<String> cbCourse;
+    private javax.swing.JComboBox<String> cbType;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblPre;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,6 +42,7 @@ class AttendanceDetails {
         this.dep=dep;
         this.cid=cid;
         this.type=type;
+        this.sid=LoginTest.uid;
     }
     
     private Connection getConnection() {
@@ -99,12 +100,26 @@ class AttendanceDetails {
         
     }
     
-    public float summeryAttendanceIndividual(){
+    public float test(){
+        float all;
+        if("ALL".equals(type)){
+            this.type = "T";
+            all =summeryAttendanceIndividual();
+            this.type = "P";
+            all +=summeryAttendanceIndividual();
+            
+            return all/2;
+        }else{
+            return summeryAttendanceIndividual();
+        }
+    }
+    
+    private float summeryAttendanceIndividual(){
         int all=0,came=0;
         float summery;
         String myStatement;
         myStatement="select * from "+dep.toLowerCase()+"_"+cid+"_attendance where stu_id=\""+sid+"\" and session_type=\""+type+"\" and is_delete=0";
-        
+
         try {
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(myStatement);
@@ -130,7 +145,6 @@ class AttendanceDetails {
         }
         
         summery=(came*100)/all;
-        
         return summery;
             
     }
