@@ -29,9 +29,9 @@ public class MyDBConnector {
      * @return
      */
     public Connection getMyConnection(){
-        String url = "jdbc:mysql://81.19.211.39:3306/madushan_teclms";//url to the hosting place your databse
-        String user = "madushan"; //user name
-        String pw = "Myweb@123"; // password for the user.
+        String url = "jdbc:mysql://localhost:3306/teclms";//url to the hosting place your databse
+        String user = "root"; //user name
+        String pw = ""; // password for the user.
         
         Connection myConnection = null;
         try {

@@ -37,3 +37,5 @@ build/classes/LoginFrame/AdminDetails.class
 *.class
 *.class
 *.properties
+src/LoginFrame/MyDBConnector.java
+*.class

@@ -493,7 +493,7 @@ public class StudentResultsFrame extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ict1111_ca_marks)
                     .addComponent(ict1111_ca_status))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addGap(48, 48, 48)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -521,10 +521,8 @@ public class StudentResultsFrame extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ict1111fp)
-                            .addComponent(ict1111q1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ict1111q1)
+                        .addContainerGap(589, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,8 +531,9 @@ public class StudentResultsFrame extends javax.swing.JFrame {
                             .addComponent(ict1111q2)
                             .addComponent(ict1111a2)
                             .addComponent(ict1111a3)
-                            .addComponent(ict1111ft))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                            .addComponent(ict1111ft)
+                            .addComponent(ict1111fp))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(145, 145, 145))))
         );
@@ -559,26 +558,26 @@ public class StudentResultsFrame extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(ict1111a1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(ict1111a2))
-                        .addGap(30, 30, 30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(ict1111a3))
-                        .addGap(50, 50, 50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(ict1111ft))
-                        .addGap(27, 27, 27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(ict1111fp))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(ict1111fp))
-                .addGap(31, 31, 31))
+                        .addGap(65, 65, 65))))
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -834,7 +833,7 @@ public class StudentResultsFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Object Oriented Analysis");
 
-        jPanel15.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel15.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel79.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel79.setText("Quiz 01");
@@ -1030,7 +1029,7 @@ public class StudentResultsFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Data Structures & Algorithms");
 
-        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel15.setText("Quiz 01");
@@ -1254,7 +1253,7 @@ public class StudentResultsFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel6.setText("Professional Issues of ICT");
 
-        jPanel18.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel18.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel127.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel127.setText("Quiz 01");
@@ -1463,7 +1462,7 @@ public class StudentResultsFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel5.setText("Object Oriented Development");
 
-        jPanel17.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel17.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel111.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel111.setText("Quiz 01");

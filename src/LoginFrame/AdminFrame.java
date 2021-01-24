@@ -58,6 +58,8 @@ public class AdminFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -125,16 +127,17 @@ public class AdminFrame extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtACEid = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtACEname = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtACEcredit = new javax.swing.JTextField();
         lblDep2 = new javax.swing.JLabel();
-        cbCCDep1 = new javax.swing.JComboBox<>();
+        cbACEdep = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtACELec = new javax.swing.JTextField();
+        btnACEdit = new javax.swing.JButton();
+        lblACEresult = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -193,6 +196,10 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOutput = new javax.swing.JTable();
+
+        jLabel36.setText("jLabel36");
+
+        jLabel37.setText("jLabel37");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -677,19 +684,26 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jLabel27.setText("Course Credit");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtACEcredit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtACEcreditActionPerformed(evt);
             }
         });
 
         lblDep2.setText("Department");
 
-        cbCCDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
+        cbACEdep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "ENT", "BST" }));
 
         jLabel28.setText("Lecture Incharge");
 
-        jButton3.setText("Edit");
+        btnACEdit.setText("Edit");
+        btnACEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnACEditActionPerformed(evt);
+            }
+        });
+
+        lblACEresult.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -702,23 +716,33 @@ public class AdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel27)
-                            .addComponent(lblDep2)
-                            .addComponent(jLabel28))
-                        .addGap(38, 38, 38)
+                            .addComponent(jLabel26))
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField5)
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addComponent(cbCCDep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 299, Short.MAX_VALUE))
-                            .addComponent(jTextField6)))
+                            .addComponent(txtACEname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addComponent(txtACEid, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(btnACEdit))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(lblDep2))
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addComponent(cbACEdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtACEcredit)))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(38, 38, 38)
+                        .addComponent(txtACELec)))
                 .addContainerGap())
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(lblACEresult)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -728,26 +752,29 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtACEid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtACEname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbCCDep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDep2))
+                    .addComponent(txtACEcredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(lblDep2)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(txtACELec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cbACEdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnACEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblACEresult)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Edit Course", jPanel14);
@@ -1360,9 +1387,9 @@ public class AdminFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtACEcreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtACEcreditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtACEcreditActionPerformed
 
     private void btnNCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNCreateActionPerformed
         // TODO add your handling code here:
@@ -1480,6 +1507,17 @@ public class AdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbUJobActionPerformed
 
+    private void btnACEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACEditActionPerformed
+        // TODO add your handling code here:
+        String cid=txtACEid.getText();
+        String cName=txtACEname.getText();
+        String credit=txtACEcredit.getText();
+        String cDep=cbACEdep.getSelectedItem().toString();
+        String cLec=txtACELec.getText();
+        CourseDetails courseDetails = new CourseDetails(cid,credit,cName,cLec,cDep);
+        lblACEresult.setText(courseDetails.validateCourseEdit());
+    }//GEN-LAST:event_btnACEditActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1515,17 +1553,18 @@ public class AdminFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnACEdit;
     private javax.swing.JButton btnANall;
     private javax.swing.JButton btnCCreate;
     private javax.swing.JButton btnCCreate1;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNCreate;
+    private javax.swing.JComboBox<String> cbACEdep;
     private javax.swing.JComboBox<String> cbANDep;
     private javax.swing.JComboBox<String> cbANdep;
     private javax.swing.JComboBox<String> cbCCCDep;
     private javax.swing.JComboBox<String> cbCCCredit;
     private javax.swing.JComboBox<String> cbCCDep;
-    private javax.swing.JComboBox<String> cbCCDep1;
     public javax.swing.JComboBox<String> cbCDep;
     public javax.swing.JComboBox<String> cbCRole;
     private javax.swing.JComboBox<String> cbDDep;
@@ -1535,7 +1574,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbUJob;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
@@ -1568,6 +1606,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -1607,10 +1647,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lblACEresult;
     private javax.swing.JLabel lblAEReuslt;
     private javax.swing.JLabel lblANEResult;
     private javax.swing.JLabel lblCCResult;
@@ -1634,6 +1671,10 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel pnlCreateUser;
     private static javax.swing.JTable tblOutput;
+    private javax.swing.JTextField txtACELec;
+    private javax.swing.JTextField txtACEcredit;
+    private javax.swing.JTextField txtACEid;
+    private javax.swing.JTextField txtACEname;
     private javax.swing.JTextField txtANNotice;
     private javax.swing.JTextField txtANdelete;
     private javax.swing.JTextField txtANid;

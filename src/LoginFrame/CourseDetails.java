@@ -30,6 +30,7 @@ public class CourseDetails {
         this.cDep=cDep;
     }
     
+    
     CourseDetails(String cid){
         this.cid=cid;
     }
@@ -132,4 +133,60 @@ public class CourseDetails {
         
     }
     
+    public String validateCourseEdit(){
+        if("".equals(cid)){
+            return "Course id is Empty";
+        }else if("".equals(cName)){
+             return "Course Name is Empty";
+        }else if("".equals(cLec)){
+            return "Lecture Incharge is Empty";
+        }else{
+            return editCourse();
+        } 
+    }
+    
+    private String editCourse(){
+        int row=0;
+        String myStatement;
+        
+        myStatement="Select * from course_module where c_id=\""+cid+"\"";
+        
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(myStatement);
+            
+            while(rs.next()){
+                row += 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(row!=1){
+            return "ID doesn't Exist";
+        }
+        myStatement="Select * from staff where emp_id=\""+cLec+"\"";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(myStatement);
+            row=0;
+            while(rs.next()){
+                row += 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(row!=1){
+            return "No Lecturer found";
+        } else {
+            myStatement="update course_module set c_name=\""+cName+"\",credit=\""+credit+"\",dep_id=\""+cDep+"\",lec_incharge=\""+cLec+"\" where c_id=\""+cid+"\"";
+            try {
+                    stmt = con.createStatement();
+                int check = stmt.executeUpdate(myStatement);
+               } catch (SQLException ex) {
+                   Logger.getLogger(AdminDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
+         
+            return "Record Updated";
+        }
+    }
 }
